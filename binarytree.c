@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX 5000
 #define MAX_EL 3
@@ -111,11 +112,23 @@ int main()
 {
 	char user_input;
 	float value_search;
+	int i;
+	float input_value;
+	srand(time(NULL));
 
-	root = InsertData(root, 21.0);
+	printf ("Input_value:\t");
+
+	for (i=0; i<10; i++)
+	{
+		input_value = rand()%100 + 2.3;
+		printf ("%.1f\t", input_value);
+		root = InsertData(root, input_value);
+	}
+
+	/*root = InsertData(root, 21.0);
 	root = InsertData(root, 23.0);
 	root = InsertData(root, 10.0);
-	root = InsertData(root, 4.0);
+	root = InsertData(root, 4.0);*/
 
 
 	printf ("\nDo you want to search for a value?");
@@ -130,6 +143,8 @@ int main()
 			TreeSearch(root, value_search);
 	}
 }
+
+
 /*----The main function of the program that makes the initial calls to the other functions----*/
 
 /*========================================================================================================*/
